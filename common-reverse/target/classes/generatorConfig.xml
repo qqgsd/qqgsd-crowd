@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--  <properties resource="mybatis.properties" />
+         -->
+    <classPathEntry location="D:\Maven\Maven_repository\mysql\mysql-connector-java\8.0.21\mysql-connector-java-8.0.21.jar" />
+    <context id="msqlTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/crowd?useSSL=false&amp;
+                                       allowPublicKeyRetrieval=true&amp;
+                                       serverTimezone=UTC&amp;
+                                       rewriteBatchedStatements=true"
+                        driverClass="com.mysql.cj.jdbc.Driver" userId="root" password="xu19990523"  >
+        </jdbcConnection>
+        <!--model类-->
+        <javaModelGenerator targetPackage="com.qqgsd.crowd.entity.po"
+                            targetProject="D:\Project\Crowd\member-parent\member-entity\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--mapper.xml文件-->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="D:\Project\Crowd\member-parent\mysql-provider\src\main\resources\mybatis">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--mapper接口类-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.qqgsd.crowd.mapper"
+                             targetProject="D:\Project\Crowd\member-parent\mysql-provider\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--数据库表-->
+        <table tableName="t_order" domainObjectName="OrderPO"/>
+        <table tableName="t_address" domainObjectName="AddressPO"/>
+        <table tableName="t_order_project" domainObjectName="OrderProjectPO"/>
+    </context>
+</generatorConfiguration>

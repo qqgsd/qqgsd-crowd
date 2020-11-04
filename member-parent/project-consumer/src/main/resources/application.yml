@@ -1,0 +1,25 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: crowd-project
+  redis:
+    host: 192.168.11.129
+  session:
+    store-type: redis
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    check-template: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+aliyun:
+  oss:
+    access-key-id: LTAI4G1zuXQu83TbtdNkfC8k
+    access-key-secret: UyxS9fj98VA1x5VKxEw7OtWAarppqv
+    bucket-domain: qqgsd.oss-cn-beijing.aliyuncs.com
+    bucket-name: qqgsd
+    end-point: oss-cn-beijing.aliyuncs.com
